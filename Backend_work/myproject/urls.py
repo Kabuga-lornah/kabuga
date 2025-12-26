@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from myapp.views import get_ai_projects, get_ai_insights
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/projects/', get_ai_projects, name='projects'),
+    path('api/insights/', get_ai_insights, name='insights'),
 ]
