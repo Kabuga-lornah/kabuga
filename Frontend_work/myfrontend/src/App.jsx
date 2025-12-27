@@ -1,29 +1,29 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Auth from './pages/Auth';
-import './App.css';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
   return (
     <Router>
-      <nav className="navbar">
-        <div className="logo">AI Studio</div>
-        <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/auth" className="auth-link">Login</Link>
-        </div>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/auth" element={<Auth />} />
-      </Routes>
+      <div className="flex flex-col min-h-screen bg-white">
+        <Navbar />
+        {/* pt-20 creates 80px of space to prevent overlap with the h-20 navbar */}
+        <main className="flex-grow pt-20">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }
