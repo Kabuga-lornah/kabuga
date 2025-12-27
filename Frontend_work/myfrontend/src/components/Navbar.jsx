@@ -60,7 +60,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto w-full flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="text-2xl font-black tracking-tighter text-slate-950 uppercase">
-            Devixa
+            Devixa Engineering
           </Link>
           
           {/* Desktop Menu */}
