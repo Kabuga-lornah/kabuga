@@ -4,7 +4,7 @@ class AIProject(models.Model):
     """Stores your portfolio, specifically focusing on AI/ML integrations."""
     title = models.CharField(max_length=200)
     description = models.TextField()
-    ai_tech_stack = models.CharField(max_length=200, help_text= "OpenAI, TensorFlow, LangChain")
+    ai_tech_stack = models.CharField(max_length=200, help_text="OpenAI, TensorFlow, LangChain")
     impact_metric = models.CharField(max_length=200, help_text="e.g., Reduced manual work by 40%")
     image = models.ImageField(upload_to='projects/', null=True, blank=True)
     live_link = models.URLField(blank=True)
@@ -14,7 +14,7 @@ class AIProject(models.Model):
         return self.title
 
 class AIInsight(models.Model):
-    """Powers a 'Live AI Insights' section on your site to show you know the trends."""
+    """Powers a 'Live AI Insights' section on your site."""
     topic = models.CharField(max_length=100)
     summary = models.TextField()
     relevance_to_kenya = models.TextField()
@@ -24,7 +24,7 @@ class AIInsight(models.Model):
         return self.topic
 
 class ConsultationLead(models.Model):
-    """The 'Request a Quote' table, but with fields for AI interest."""
+    """The 'Request a Quote' table for potential clients."""
     name = models.CharField(max_length=255)
     email = models.EmailField()
     business_type = models.CharField(max_length=100)
