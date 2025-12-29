@@ -1,4 +1,6 @@
 import React from 'react';
+// Import the image from the public folder
+import aiImage from '/ai image.png'; 
 import { 
   CpuChipIcon, 
   BeakerIcon, 
@@ -13,7 +15,7 @@ const AIAutomation = () => {
   return (
     <div className="bg-white text-slate-900 font-sans selection:bg-cyan-100">
       
-      {/* SECTION 1 — HERO: DARK BLUE OPERATIONAL STYLE (KEEP AS IS) */}
+      {/* SECTION 1 — HERO: DARK BLUE OPERATIONAL STYLE */}
       <section className="relative pt-32 pb-20 px-6 lg:px-10 overflow-hidden bg-slate-950">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
              style={{ backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, backgroundSize: '40px 40px' }}></div>
@@ -43,7 +45,7 @@ const AIAutomation = () => {
         </div>
       </section>
 
-      {/* SECTION 2 — DEFINITION: DARK BLUE WITH "LOGIC OVER HYPE" VISUAL */}
+      {/* SECTION 2 — DEFINITION: UPDATED WITH AI IMAGE */}
       <section className="py-24 px-6 lg:px-10 bg-slate-950 border-t border-slate-900">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-7">
@@ -63,18 +65,27 @@ const AIAutomation = () => {
           </div>
           
           <div className="lg:col-span-5 flex items-center justify-center">
-             <div className="w-full max-w-[300px] aspect-square border border-slate-800 rounded-full flex items-center justify-center relative">
-                <div className="absolute inset-0 animate-pulse border border-cyan-500/20 rounded-full scale-110"></div>
-                <div className="text-center p-12">
-                   <CpuChipIcon className="h-12 w-12 text-cyan-500 mx-auto mb-4" />
-                   <span className="block text-[10px] font-black uppercase tracking-widest text-slate-500">Logic Over Hype</span>
+             <div className="relative w-full max-w-md group">
+                {/* Decorative background glow */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                
+                {/* The AI Image Integration */}
+                <div className="relative bg-slate-900 rounded-lg overflow-hidden border border-slate-800">
+                   <img 
+                    src={aiImage} 
+                    alt="Artificial Intelligence" 
+                    className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                   />
+                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-950 to-transparent">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-cyan-500">Logic Over Hype</span>
+                   </div>
                 </div>
              </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3 — THE PROBLEMS (LIGHT SECTION - CLARITY & OPENNESS) */}
+      {/* SECTION 3 — THE PROBLEMS */}
       <section className="py-24 bg-white px-6 lg:px-10 border-b border-slate-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-xl font-bold mb-2 text-slate-950">Organizations adopt AI for one reason: complexity has exceeded human scale.</h2>
@@ -101,7 +112,7 @@ const AIAutomation = () => {
         </div>
       </section>
 
-      {/* ADD 1 & SECTION 4 — USE CASES & REAL-WORLD CONTEXT */}
+      {/* SECTION 4 — USE CASES */}
       <section className="py-24 px-6 lg:px-10 max-w-7xl mx-auto">
         <h2 className="text-[11px] font-black uppercase tracking-[0.4em] text-cyan-600 mb-16 text-center">Responsible Deployment</h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
@@ -122,7 +133,6 @@ const AIAutomation = () => {
           </div>
         </div>
 
-        {/* Practical Context Examples */}
         <div className="bg-slate-50 p-10 border border-slate-100">
           <h4 className="text-[11px] font-black uppercase tracking-[0.2em] mb-8 text-slate-400">Practical examples of responsible AI integration</h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs font-bold text-slate-700 leading-snug">
@@ -133,7 +143,7 @@ const AIAutomation = () => {
         </div>
       </section>
 
-      {/* ADD 2 — HUMAN + AI COLLABORATION MODEL */}
+      {/* SECTION 5 — COLLABORATION MODEL */}
       <section className="py-24 bg-white px-6 lg:px-10 border-y border-slate-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold tracking-tight mb-12 text-center uppercase">Human + Machine Collaboration Model</h2>
@@ -158,7 +168,7 @@ const AIAutomation = () => {
         </div>
       </section>
 
-      {/* SECTION 5 — FOUNDATIONS & ADD 3 (TECHNICAL BREADCRUMBS) */}
+      {/* SECTION 6 — FOUNDATIONS */}
       <section className="py-24 bg-slate-950 text-white px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
@@ -166,7 +176,6 @@ const AIAutomation = () => {
               <h2 className="text-3xl font-bold tracking-tight mb-6 uppercase">AI is only as reliable <br/> as its foundations.</h2>
               <p className="text-slate-400 text-sm max-w-md mb-8">Algorithms are secondary to data quality, model assumptions, and business context.</p>
               
-              {/* Technical Breadcrumbs */}
               <div className="pt-8 border-t border-slate-800">
                 <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 block mb-4">Technologies we work with:</span>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 leading-loose">
@@ -186,7 +195,7 @@ const AIAutomation = () => {
         </div>
       </section>
 
-      {/* SECTION 6 — GOVERNANCE, RISK & ETHICS (KEEP AS IS) */}
+      {/* SECTION 7 — GOVERNANCE */}
       <section className="py-24 px-6 lg:px-10 max-w-7xl mx-auto border-b border-slate-50">
         <div className="max-w-3xl">
           <h2 className="text-2xl font-bold tracking-tight mb-6 text-slate-950 uppercase">Responsible AI is non-negotiable.</h2>
@@ -207,7 +216,7 @@ const AIAutomation = () => {
         </div>
       </section>
 
-      {/* SECTION 7 — THE PATH (TONED DOWN LABELS) */}
+      {/* SECTION 8 — THE PATH */}
       <section className="py-24 px-6 lg:px-10 max-w-7xl mx-auto">
         <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 mb-12">The Path to Integration</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-slate-950">
@@ -227,28 +236,6 @@ const AIAutomation = () => {
         <p className="mt-16 text-center text-[10px] font-bold text-slate-400 uppercase tracking-widest pt-12 border-t border-slate-50">
            Not every problem needs AI — and we will tell you when it doesn’t.
         </p>
-      </section>
-
-      {/* SECTION 8 — FILTER */}
-      <section className="py-24 bg-slate-50 px-6 lg:px-10 border-y border-slate-100">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="space-y-6">
-            <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-cyan-600">Ideal Engagement</h3>
-            <ul className="space-y-3 text-xs font-bold uppercase tracking-tight text-slate-700">
-              <li className="flex items-center gap-3"><span className="w-1 h-1 bg-cyan-600"></span> Organizations with existing data</li>
-              <li className="flex items-center gap-3"><span className="w-1 h-1 bg-cyan-600"></span> Teams overwhelmed by complexity</li>
-              <li className="flex items-center gap-3"><span className="w-1 h-1 bg-cyan-600"></span> Leaders seeking insight</li>
-            </ul>
-          </div>
-          <div className="space-y-6 text-slate-400 text-xs font-bold uppercase tracking-tight">
-            <h3 className="text-[11px] font-black uppercase tracking-[0.3em]">Out of Scope</h3>
-            <ul className="space-y-3">
-              <li>AI experiments without business purpose</li>
-              <li>Fully autonomous decision-making demands</li>
-              <li>Projects seeking “marketing appeal”</li>
-            </ul>
-          </div>
-        </div>
       </section>
 
       {/* SECTION 9 — FINAL CTA */}
