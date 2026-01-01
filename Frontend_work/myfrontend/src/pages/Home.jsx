@@ -1,198 +1,223 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
 const Home = () => {
-  return (
-    <div className="w-full bg-white text-slate-900 font-sans antialiased selection:bg-cyan-100">
+  const [scrollY, setScrollY] = useState(0);
 
-      {/* 1. HERO */}
-      <section className="relative min-h-[85vh] flex items-center px-8 border-b border-slate-50 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 right-20 w-[500px] h-[500px] bg-cyan-600/5 rounded-full blur-[120px]" />
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="w-full bg-white text-slate-900 font-sans antialiased">
+      {/* 1. HERO SECTION — POSITIONING & AUTHORITY */}
+      <section className="relative min-h-screen flex items-center px-6 md:px-12">
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-80"
+          >
+            <source src="/city.mp4" type="video/mp4" />
+          </video>
         </div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
-          <div className="lg:col-span-8">
-            <span className="inline-block mb-8 px-3 py-1 text-[10px] font-black uppercase tracking-[0.3em] text-cyan-700 bg-cyan-50 border border-cyan-600/20 rounded-full">
+        <div className="relative max-w-7xl mx-auto w-full">
+          <div className="max-w-3xl">
+            <span className="inline-block mb-6 text-xs font-bold uppercase tracking-widest text-cyan-700">
               Engineering & AI Advisory
             </span>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] mb-8">
-              Software Engineering <br />
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-8">
+              Engineering Software <br />
               & AI Systems <br />
-              <span className="text-cyan-600">Built Right.</span>
+              <span className="text-cyan-700">That Scale With Confidence.</span>
             </h1>
 
-            <p className="max-w-2xl text-lg lg:text-xl text-slate-600 font-medium mb-12">
-              Devixa designs, audits, and builds scalable software systems and AI-powered solutions
-              for organizations that cannot afford failure, rework, or unclear decisions.
+            <p className="text-lg text-slate-600 leading-relaxed mb-10">
+              Devixa is a software engineering and artificial intelligence
+              consulting firm that designs, audits, and builds reliable digital
+              systems for businesses that need technology to work — not fail. We
+              help organizations move from unclear ideas to structured, scalable
+              solutions by making the right technical decisions from the start.
             </p>
 
-            <div className="flex flex-wrap gap-6">
-              <Link to="/solutions/software" className="bg-slate-950 text-white px-10 py-5 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-cyan-600 transition rounded-sm">
-                Software Engineering
-              </Link>
-              <Link to="/solutions/ai" className="border border-slate-300 px-10 py-5 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-slate-50 rounded-sm">
-                AI Solutions
-              </Link>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="/solutions/software"
+                className="bg-slate-900 text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-slate-800 transition"
+              >
+                Explore Software Engineering Solutions
+              </a>
+              <a
+                href="/solutions/ai"
+                className="border border-slate-300 px-8 py-4 text-xs font-bold uppercase tracking-widest hover:border-slate-900 transition"
+              >
+                Explore AI & Automation
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. THE REAL PROBLEM */}
-      <section className="py-28 px-8 border-b border-slate-100">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl font-black uppercase tracking-tight mb-10">
-            Most software fails <br /> long before it breaks.
+      {/* 2. VALUE PROPOSITION — WHY DEVIXA EXISTS */}
+      <section className="py-32 px-6 md:px-12 bg-slate-50 border-t border-b">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-black mb-12">
+            Most software fails <span className="text-slate-400">before it breaks.</span>
           </h2>
-
-          <p className="text-lg text-slate-600 leading-relaxed mb-10">
-            Software systems rarely collapse overnight. They degrade quietly —
-            through rushed decisions, unclear ownership, undocumented assumptions,
-            and architectural shortcuts made under pressure.
-          </p>
-
-          <ul className="space-y-4 text-slate-600 font-medium">
-            <li>• Rising operational cost</li>
-            <li>• Fragile integrations</li>
-            <li>• Security exposure</li>
-            <li>• Systems that teams are afraid to touch</li>
-          </ul>
-
-          <p className="mt-10 italic text-slate-500">
-            By the time these issues surface, fixing them is expensive —
-            sometimes impossible without rebuilding.
-          </p>
-        </div>
-      </section>
-
-      {/* 3. WHY DEVIXA EXISTS */}
-      <section className="py-32 px-8 bg-slate-50 border-b border-slate-100">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <h3 className="text-4xl lg:text-5xl font-black uppercase leading-[0.9]">
-            Devixa exists to fix <br /> the thinking before <br /> the code.
-          </h3>
-
-          <div className="space-y-8 text-slate-600 text-lg font-medium leading-relaxed">
+          <div className="text-lg text-slate-600 leading-relaxed space-y-6 text-left md:text-center">
             <p>
-              Most software teams are optimized for speed.
-              Very few are optimized for correctness.
+              Modern software fails not because teams lack tools, but because
+              systems are built without clear architectural thinking. Features
+              are rushed. AI is added without governance. Technical debt
+              accumulates quietly until systems become expensive and fragile.
+            </p>
+            <p className="font-bold text-slate-900">
+              Devixa exists to prevent this.
             </p>
             <p>
-              Devixa was founded on a simple belief:
-              <strong className="text-slate-900"> engineering excellence begins with disciplined decision-making.</strong>
-            </p>
-            <p>
-              We design systems meant to survive scale, withstand change,
-              and remain secure and maintainable long after initial delivery.
+              We approach software as an engineered system — one that must remain
+              secure, maintainable, and adaptable as a business grows. Every
+              solution is grounded in structure, documentation, and long-term
+              thinking, ensuring that what we build today does not become
+              tomorrow’s liability.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 4. AI RESPONSIBILITY */}
-      <section className="py-32 px-8 border-b border-slate-100">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-4xl lg:text-5xl font-black uppercase mb-12">
-            AI without governance <br /> is operational risk.
-          </h3>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 text-slate-600 text-lg font-medium">
-            <p>
-              AI introduces new power — and new failure modes.
-              Without structure, AI systems drift silently, automate the wrong decisions,
-              and expose organizations to regulatory and reputational risk.
+      {/* 3. SERVICES OVERVIEW */}
+      <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16">
+          <div>
+            <h3 className="text-2xl font-black uppercase tracking-tighter mb-6 text-cyan-700">Software Engineering</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Devixa delivers production-grade software engineering across backend systems, 
+              frontend applications, APIs, cloud infrastructure, and integrations. We design 
+              architectures that support growth, reliability, and maintainability — not just initial delivery.
+              <br /><br />
+              Our focus is on systems that are easy to extend, test, and operate over time.
             </p>
-
-            <ul className="space-y-4">
-              <li>• Human-in-the-loop controls</li>
-              <li>• Clear automation boundaries</li>
-              <li>• Explainability standards</li>
-              <li>• Performance and drift monitoring</li>
-            </ul>
           </div>
-
-          <p className="mt-12 italic text-slate-500">
-            Intelligence is only valuable when it is controlled.
-          </p>
+          <div>
+            <h3 className="text-2xl font-black uppercase tracking-tighter mb-6 text-cyan-700">AI & Intelligent Systems</h3>
+            <p className="text-slate-600 leading-relaxed">
+              We design artificial intelligence solutions that serve real business workflows. 
+              This includes automation, data-driven decision systems, document intelligence, 
+              and predictive logic — always with transparency, control, and human oversight.
+              <br /><br />
+              AI at Devixa is not experimentation. It is engineering.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 5. HOW WE BUILD */}
-      <section className="py-32 px-8 bg-slate-50 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
-          <div className="lg:col-span-5">
-            <h3 className="text-4xl lg:text-5xl font-black uppercase leading-[0.9] mb-8">
-              How we build <br /> & deploy.
-            </h3>
-            <p className="text-lg text-slate-600 font-medium">
-              From business logic to technical validation — with clarity at every step.
-            </p>
-          </div>
-
-          <div className="lg:col-span-7 space-y-4">
-            {[
-              "Discovery & System Analysis",
-              "Architecture & AI Design",
-              "Engineering Validation",
-              "Deployment & Governance"
-            ].map((step, i) => (
-              <div key={i} className="bg-white border border-slate-200 p-8 flex gap-8">
-                <span className="text-3xl font-black text-slate-200">0{i + 1}</span>
-                <span className="text-sm font-black uppercase tracking-widest">{step}</span>
+      {/* 4. METHODOLOGY — HOW YOU WORK */}
+      <section className="py-32 px-6 md:px-12 bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black mb-8">
+                Decision-First <br />
+                <span className="text-slate-400">Methodology.</span>
+              </h2>
+              <div className="space-y-6 text-slate-300 text-lg">
+                <p>
+                  Every engagement at Devixa follows a structured, decision-first methodology. 
+                  Before writing code, we invest time in understanding the business logic, 
+                  constraints, risks, and long-term goals behind a system.
+                </p>
+                <p>
+                  We begin with discovery and system analysis, followed by architectural design and validation. 
+                  Only once decisions are documented and aligned do we move into implementation. 
+                  This ensures clarity, reduces rework, and protects clients from costly mistakes.
+                </p>
+                <p className="italic text-white">
+                  Quality, security, and documentation are not add-ons — they are built into every stage of delivery.
+                </p>
               </div>
-            ))}
+            </div>
+            <div className="bg-white/5 p-8 rounded-lg border border-white/10">
+               <ul className="space-y-8">
+                  <li className="flex gap-4">
+                    <span className="text-cyan-500 font-mono">01</span>
+                    <div>
+                      <h4 className="font-bold text-white uppercase tracking-widest text-sm">Discovery</h4>
+                      <p className="text-sm text-slate-400">Deep analysis of logic and constraints.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4">
+                    <span className="text-cyan-500 font-mono">02</span>
+                    <div>
+                      <h4 className="font-bold text-white uppercase tracking-widest text-sm">Architecture</h4>
+                      <p className="text-sm text-slate-400">Validating the plan before execution.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-4">
+                    <span className="text-cyan-500 font-mono">03</span>
+                    <div>
+                      <h4 className="font-bold text-white uppercase tracking-widest text-sm">Implementation</h4>
+                      <p className="text-sm text-slate-400">Engineering with precision and scale.</p>
+                    </div>
+                  </li>
+               </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 6. WHO THIS IS FOR */}
-      <section className="py-32 px-8 border-b border-slate-100">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <div>
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] mb-6 text-cyan-600">
-              Ideal Clients
-            </h4>
-            <ul className="space-y-4 font-medium text-slate-700">
-              <li>• Organizations building core systems</li>
-              <li>• Teams planning for scale</li>
-              <li>• Businesses tired of rebuilding software</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] mb-6 text-slate-400">
-              Not a Fit
-            </h4>
-            <ul className="space-y-4 font-medium text-slate-400">
-              <li>• Cheapest-option seekers</li>
-              <li>• One-off quick websites</li>
-              <li>• No long-term ownership</li>
-            </ul>
-          </div>
-        </div>
+      {/* 5. FOUNDER-LED & 6. PROOF */}
+      <section className="py-32 px-6 md:px-12 max-w-5xl mx-auto text-center">
+        <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-700 mb-8">Our Philosophy</h3>
+        <p className="text-2xl md:text-3xl font-medium text-slate-800 leading-relaxed mb-12">
+          "Devixa was founded to bring discipline, clarity, and foresight back into software development. 
+          Good software is not defined by speed alone. It is defined by the quality of decisions made 
+          before the first line of code is written."
+        </p>
+        <div className="h-px w-24 bg-slate-200 mx-auto mb-12"></div>
+        <p className="text-slate-600 max-w-2xl mx-auto">
+          We focus on eliminating operational friction and enabling teams to scale confidently. 
+          Whether designing infrastructure or introducing AI pipelines, our work prioritizes 
+          precision, accountability, and measurable outcomes.
+        </p>
       </section>
 
-      {/* 7. DIAGNOSTIC CTA */}
-      <section className="py-40 px-8 bg-slate-950 text-white text-center">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl lg:text-7xl font-black uppercase leading-[0.8] mb-10">
-            Build with <br />
-            <span className="text-cyan-600">decision confidence.</span>
-          </h2>
-
-          <p className="text-lg text-slate-400 mb-16 italic">
-            Most organizations cannot clearly explain why their system is built the way it is.
-            Our diagnostic surfaces risks before they become failures.
+      {/* 7. INDUSTRIES */}
+      <section className="py-24 px-6 md:px-12 bg-slate-50 border-t border-b">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <h2 className="text-3xl font-black">Who We Serve.</h2>
+          <p className="text-slate-600">
+            Devixa works with startups, SMEs, and professional organizations across industries 
+            where reliability and efficiency matter most. Rather than offering one-size-fits-all 
+            solutions, we adapt our engineering approach to the operational realities of each sector.
           </p>
-
-          <button className="bg-cyan-600 px-16 py-7 text-[10px] font-black uppercase tracking-[0.25em] hover:bg-white hover:text-slate-950 transition rounded-sm">
-            Request a System & AI Diagnostic
-          </button>
         </div>
       </section>
 
+      {/* 8. FINAL CTA — CONVERSION */}
+      <section className="py-40 px-6 md:px-12 text-center">
+        <h2 className="text-5xl md:text-6xl font-black mb-10">
+          Build with <br />
+          <span className="text-cyan-700">Decision Confidence.</span>
+        </h2>
+
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12">
+          If you are building or improving a digital system and need clarity before committing 
+          resources, Devixa can help.
+        </p>
+
+        <button className="bg-slate-900 text-white px-12 py-5 text-xs font-bold uppercase tracking-widest hover:bg-slate-800 transition">
+          Book a Software & AI Consultation
+        </button>
+
+        <p className="mt-6 text-sm text-slate-500 italic">
+          High-integrity engineering for businesses that value long-term stability.
+        </p>
+      </section>
     </div>
   );
 };
