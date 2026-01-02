@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const navItems = [
     {
-      label: "Solutions",
+      label: "SOLUTIONS", // Fixed to uppercase
       tagline: "Custom engineering tailored to your business goals.",
       dropdown: [
         { title: "Software Engineering", path: "/solutions/software", description: "Custom development and technical architecture for scalable systems" },
@@ -32,7 +32,7 @@ const Navbar = () => {
       ],
     },
     {
-      label: "Methodology",
+      label: "METHODOLOGY", // Fixed to uppercase
       tagline: "How we ensure quality and speed in every sprint.",
       dropdown: [
         { title: "Our Process", path: "/how-we-work/process", description: "Agile, transparent, and decision-first engineering" },
@@ -40,8 +40,8 @@ const Navbar = () => {
         { title: "Quality & Security", path: "/how-we-work/quality", description: "Enterprise-grade standards across all deliverables" },
       ],
     },
-    { label: "Industries", path: "/industries", tagline: "Deep expertise in specialized market sectors." },
-    { label: "Company", path: "/company" },
+    { label: "INDUSTRIES", path: "/industries", tagline: "Deep expertise in specialized market sectors." }, // Fixed to uppercase
+    { label: "COMPANY", path: "/company" }, // Fixed to uppercase
   ];
 
   return (
@@ -70,7 +70,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex gap-10 items-center text-[10px] font-black uppercase tracking-[0.25em] text-slate-500">
+          <div className="hidden lg:flex gap-6 items-center text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
             {navItems.map((item, idx) => (
               <div
                 key={idx}
@@ -88,20 +88,34 @@ const Navbar = () => {
                 )}
               </div>
             ))}
+
+            {/* Intelligence Button with Persistent Glowing Border */}
+            <Link to="/intelligence" className="relative group ml-2">
+              <div className="absolute -inset-[1.5px] bg-gradient-to-r from-cyan-400 to-blue-700 rounded-sm blur-[2px] opacity-70 group-hover:opacity-100 transition duration-500"></div>
+              <button className="relative px-5 py-2.5 bg-white text-slate-950 text-[9px] font-black uppercase tracking-[0.3em] rounded-sm flex items-center justify-center">
+                INTELLIGENCE
+              </button>
+            </Link>
           </div>
 
-          {/* Right Actions (Search, Login Redirect, CTA) */}
-          <div className="flex items-center gap-2 lg:gap-4">
-            <button onClick={() => setIsSearchOpen(true)} className="text-slate-400 hover:text-cyan-600 p-2">
-              <MagnifyingGlassIcon className="h-5 w-5" />
+          {/* Right Actions (Redesigned Search & Auth) */}
+          <div className="flex items-center gap-1 lg:gap-2">
+            {/* Search Icon - Refined Styling */}
+            <button 
+              onClick={() => setIsSearchOpen(true)} 
+              className="text-slate-400 hover:text-cyan-600 p-2.5 border border-transparent hover:border-slate-100 rounded-lg transition-all"
+              title="Search"
+            >
+              <MagnifyingGlassIcon className="h-4.5 w-4.5" />
             </button>
 
-            {/* Profile Icon now redirects directly to Login or Profile based on token */}
+            {/* Profile/Auth Icon - Refined Styling */}
             <Link 
               to={token ? "/profile" : "/login"} 
-              className="text-slate-400 hover:text-cyan-600 p-2 transition-all duration-200 hidden lg:block"
+              className="text-slate-400 hover:text-cyan-600 p-2.5 border border-transparent hover:border-slate-100 rounded-lg transition-all hidden lg:block"
+              title={token ? "My Profile" : "Login"}
             >
-              <UserIcon className="h-5 w-5" />
+              <UserIcon className="h-4.5 w-4.5" />
             </Link>
 
             {/* Mobile Menu Toggle */}
@@ -109,9 +123,9 @@ const Navbar = () => {
               {isMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
             </button>
 
-            <Link to="/contact" className="hidden sm:block ml-2">
-              <button className="bg-slate-950 text-white px-5 lg:px-7 py-3 lg:py-4 text-[9px] font-black uppercase tracking-[0.2em] hover:bg-cyan-600 transition-all rounded-sm shadow-lg">
-                Consult an Engineer
+            <Link to="/contact" className="hidden sm:block ml-3">
+              <button className="bg-slate-950 text-white px-6 py-4 text-[9px] font-black uppercase tracking-[0.2em] hover:bg-cyan-600 transition-all rounded-sm shadow-lg">
+                CONSULT AN ENGINEER
               </button>
             </Link>
           </div>
@@ -142,21 +156,24 @@ const Navbar = () => {
               </div>
             ))}
             
-            {/* Mobile Auth Links */}
+            <div className="border-b border-slate-50 pb-6">
+               <Link to="/intelligence" onClick={() => setIsMenuOpen(false)} className="text-xl font-black uppercase tracking-widest text-cyan-600">INTELLIGENCE SUITE</Link>
+            </div>
+
             <div className="mt-4 flex flex-col gap-4">
               {!token ? (
                 <div className="flex gap-4">
-                  <Link to="/login" onClick={() => setIsMenuOpen(false)} className="flex-1 text-center py-4 bg-slate-50 text-[10px] font-black uppercase tracking-widest text-slate-950">Login</Link>
-                  <Link to="/signup" onClick={() => setIsMenuOpen(false)} className="flex-1 text-center py-4 bg-cyan-600 text-[10px] font-black uppercase tracking-widest text-white">Sign Up</Link>
+                  <Link to="/login" onClick={() => setIsMenuOpen(false)} className="flex-1 text-center py-4 bg-slate-50 text-[10px] font-black uppercase tracking-widest text-slate-950">LOGIN</Link>
+                  <Link to="/signup" onClick={() => setIsMenuOpen(false)} className="flex-1 text-center py-4 bg-cyan-600 text-[10px] font-black uppercase tracking-widest text-white">SIGN UP</Link>
                 </div>
               ) : (
                 <div className="flex flex-col gap-4">
-                  <Link to="/profile" onClick={() => setIsMenuOpen(false)} className="w-full text-center py-4 bg-slate-50 text-[10px] font-black uppercase tracking-widest text-slate-950">My Profile</Link>
-                  <button onClick={handleLogout} className="w-full text-center py-4 bg-slate-50 text-[10px] font-black uppercase tracking-widest text-red-600">Logout</button>
+                  <Link to="/profile" onClick={() => setIsMenuOpen(false)} className="w-full text-center py-4 bg-slate-50 text-[10px] font-black uppercase tracking-widest text-slate-950">MY PROFILE</Link>
+                  <button onClick={handleLogout} className="w-full text-center py-4 bg-slate-50 text-[10px] font-black uppercase tracking-widest text-red-600">LOGOUT</button>
                 </div>
               )}
               <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="sm:hidden">
-                <button className="w-full bg-slate-950 text-white py-5 text-[10px] font-black uppercase tracking-[0.2em]">Consult an Engineer</button>
+                <button className="w-full bg-slate-950 text-white py-5 text-[10px] font-black uppercase tracking-[0.2em]">CONSULT AN ENGINEER</button>
               </Link>
             </div>
           </div>
