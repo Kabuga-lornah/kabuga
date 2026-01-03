@@ -15,6 +15,10 @@ import QualitySecurity from './pages/how-we-work/QualitySecurity';
 import Industries from './pages/industries';
 import Company from './pages/Company';
 
+import IntelligenceLanding from './pages/intelligence/IntelligenceLanding';
+import DiagnosticInterface from './pages/intelligence/DiagnosticInterface';
+import DiagnosticResults from './pages/intelligence/DiagnosticResults';
+
 function App() {
   return (
     <Router>
@@ -36,6 +40,11 @@ function App() {
             <Route path="/how-we-work/quality" element={<QualitySecurity/>} />
             <Route path="/industries" element={<Industries/>}/>
             <Route path="/company" element={<Company/>}/>
+
+            {/* New Intelligence Routes */}
+            <Route path="/intelligence" element={<IntelligenceLanding />} />
+            <Route path="/intelligence/diagnostic" element={<DiagnosticInterface />} />
+            <Route path="/intelligence/results" element={<DiagnosticResults />} />
           </Routes>
         </main>
 

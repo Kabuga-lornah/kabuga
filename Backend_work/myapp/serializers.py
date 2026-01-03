@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import AIProject, AIInsight, ConsultationLead
+from .models import AIProject, AIInsight, ConsultationLead, IntelligenceDiagnostic
 
 class AIProjectSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,4 +14,9 @@ class AIInsightSerializer(serializers.ModelSerializer):
 class ConsultationLeadSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConsultationLead
+        fields = '__all__'
+
+class IntelligenceDiagnosticSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IntelligenceDiagnostic
         fields = '__all__'

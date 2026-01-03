@@ -13,10 +13,7 @@ import {
   Target
 } from "lucide-react";
 
-/**
- * DEVIXA FINAL POSITIONING - RESTRAINED SCALE
- * Updated to include the ai-face.mp4 visual anchor in the Core Domains section with original colors.
- */
+
 const Home = () => {
   const fadeInUp = {
     initial: { y: 20, opacity: 0 },
@@ -67,7 +64,7 @@ const Home = () => {
               
               <div className="space-y-4 text-xs text-slate-500 leading-relaxed border-l border-slate-900 pl-6 bg-slate-50/50 p-5 rounded-r-xl border border-slate-100 shadow-sm text-left">
                 <p>
-                  Modern software systems fail quietly — not at launch, but over time. 
+                  Modern software systems fail quietly not at launch, but over time. 
                   Architecture is rushed. AI is introduced without governance. 
                   Technical debt accumulates unnoticed.
                 </p>
@@ -116,7 +113,7 @@ const Home = () => {
             className="grid grid-cols-1 md:grid-cols-12 gap-8"
           >
             <motion.div variants={fadeInUp} className="md:col-span-8 bg-slate-50 border border-slate-100 p-10 rounded-2xl">
-              <h2 className="text-xl md:text-2xl font-bold mb-6 tracking-tight text-slate-950 italic">Technology should reduce uncertainty — not create it.</h2>
+              <h2 className="text-xl md:text-2xl font-bold mb-6 tracking-tight text-slate-950 italic">Technology should reduce uncertainty not create it.</h2>
               <div className="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
                 <p>
                   Too many organizations invest in software only to discover that their systems are difficult to maintain, 
@@ -124,7 +121,7 @@ const Home = () => {
                   months or years later, when fixing them becomes costly and disruptive.
                 </p>
                 <p>
-                  We help teams slow down at the right moments — to think, design, and validate — so that execution 
+                  We help teams slow down at the right moments to think, design, and validate so that execution 
                   is faster, cleaner, and more reliable in the long run.
                 </p>
               </div>
@@ -189,7 +186,7 @@ const Home = () => {
               <h3 className="text-xl md:text-2xl font-black tracking-tight">AI & Intelligent Systems</h3>
               <p className="text-sm md:text-base text-slate-600 leading-relaxed">
                 Artificial intelligence should serve a purpose beyond novelty. We design AI systems that 
-                integrate into business workflows — intelligent automation, data-driven decision systems, 
+                integrate into business workflows intelligent automation, data-driven decision systems, 
                 and predictive logic tailored to real operational constraints.
               </p>
               <div className="flex gap-3 text-[8px] font-black uppercase tracking-[0.2em] text-slate-600 bg-slate-100/60 p-3 rounded-lg w-fit border border-slate-200/50">
@@ -217,7 +214,7 @@ const Home = () => {
               <div className="space-y-6 text-slate-400 text-sm md:text-base leading-relaxed">
                 <p>
                   Every engagement follows a structured methodology. Before writing code, we invest time in 
-                  understanding the problem space — analyzing business logic, operational workflows, and 
+                  understanding the problem space analyzing business logic, operational workflows, and 
                   future growth considerations.
                 </p>
                 <p className="text-slate-300 font-medium italic">
@@ -262,7 +259,7 @@ const Home = () => {
           </div>
           <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-medium">
             Devixa applies enterprise-grade standards across all deliverables. Our approach treats AI 
-            as part of a broader system — engineered with the same discipline and security standards 
+            as part of a broader system engineered with the same discipline and security standards 
             as any critical software component.
           </p>
         </motion.div>
@@ -271,7 +268,7 @@ const Home = () => {
           <h3 className="text-[9px] font-black uppercase tracking-[0.5em] text-slate-400 mb-8">Founder's Note</h3>
           <p className="text-2xl md:text-3xl font-bold text-slate-950 leading-tight italic mb-8 tracking-tight max-w-3xl mx-auto">
             "Good software begins with good decisions. The goal is not to build fast at all costs, 
-            but to build correctly — with systems that teams can rely on as they grow."
+            but to build correctly with systems that teams can rely on as they grow."
           </p>
           <div className="h-1 w-16 bg-slate-900 mx-auto rounded-full"></div>
         </motion.div>

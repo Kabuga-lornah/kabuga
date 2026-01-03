@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 
 class AIProject(models.Model):
@@ -34,3 +35,20 @@ class ConsultationLead(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.business_type}"
+    
+class IntelligenceDiagnostic(models.Model):
+    """Stores the calculated results of the System Intelligence Diagnostic."""
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    responses = models.JSONField(help_text="Stores the raw answers for analysis")
+    
+    # Calculated Scores (0-100)
+    arch_score = models.IntegerField()
+    data_score = models.IntegerField()
+    auto_score = models.IntegerField()
+    ai_ready_score = models.IntegerField()
+    
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Diagnostic {self.id} - Score: {self.arch_score}"
